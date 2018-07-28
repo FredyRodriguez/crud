@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Requests\UserStoreRequest;
 
 class UserController extends Controller
 {
@@ -21,7 +23,19 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            'name' => $request['name'],
+            'documento' => $request['documento'],
+            'telefono' => $request['telefono'],
+            'direccion' => $request['direccion'],
+            'genero' => $request['genero'],
+            'pais' => $request['pais'],
+            'ciudad' => $request['ciudad'],
+            'fecha' => $request['fecha'],
+            'email' => $request['email'],
+            'password' => bcrypt($request['password']),
+        ]);
+        return redirect()->route('user.index');
     }
 
     public function show($id)
