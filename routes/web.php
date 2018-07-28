@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/usuario','UserController@index');
+Route::get('/usuario','UserController@index')->name('user.index');
+Route::get('/usuario/create','UserController@create');

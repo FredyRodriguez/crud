@@ -3,7 +3,7 @@
 @section('content')
             <h1>Usuarios</h1>    
             <div>
-                <a href="" class="btn btn-success">
+                <a href="{{url('usuario/create')}}" class="btn btn-success">
                      <i class="fa fa-plus"></i>
                      Crear Usuarios
                 </a>
