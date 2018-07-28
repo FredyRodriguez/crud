@@ -5,7 +5,7 @@
             <div>
                 <a href="{{url('usuario/create')}}" class="btn btn-success">
                      <i class="fa fa-plus"></i>
-                     Crear Usuarios
+                     <b>Crear Usuarios</b>
                 </a>
             </div><br>
 
@@ -38,8 +38,8 @@
                             <td>{{$user->ciudad}}</td>
                             <td>{{$user->fecha}}</td>                            
                             <td>{{$user->email}}</td>
-                            <td><a href="" class="btn btn-success">Editar</a></td>
-                            <td><a href="" class="btn btn-danger">Eliminar</a></td>
+                            <td><a href="" class="btn btn-warning"><b>Editar</b></a></td>
+                            <td><a href="" class="btn btn-danger"><b>Eliminar</b></a></td>
                         @endforeach
                     </tbody> 
                 </table>
