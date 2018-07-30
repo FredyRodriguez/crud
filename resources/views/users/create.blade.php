@@ -2,6 +2,15 @@
 @section('title',"Usuario Crear")
 @section('content')
 <h1>Crear Usuarios</h1>
+<?php $message = Session::get('message')?>
+@if($message == 'store')
+    <div class="alert alert-success alert-dismissible fade show" role="alert">        
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+         </button>
+        Usuario Creado Correctamente
+    </div>
+@endif
 <p><a href="{{route('user.index')}}" class="btn btn-primary"><b>Regresar</b></a></p>
 
     {!! Form::open(['route' =>'user.store', 'method'=>'POST','file' => true]) !!}

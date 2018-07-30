@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('/usuario','UserController@index')->name('user.index');
 Route::get('/usuario/create','UserController@create');
 Route::post('/usuario/store','UserController@store')->name('user.store');
+Route::delete('/usuario/{user}/delete','UserController@destroy')->name('user.delete');

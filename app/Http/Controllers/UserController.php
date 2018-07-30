@@ -35,7 +35,7 @@ class UserController extends Controller
             'email' => $request['email'],
             'password' => bcrypt($request['password']),
         ]);
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success','Usuario Creado Correctamente');
     }
 
     public function show($id)
@@ -53,8 +53,9 @@ class UserController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy($user)
     {
-        //
+        User::destroy($user);
+        return redirect()->route('user.index');
     }
 }
