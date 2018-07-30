@@ -41,7 +41,7 @@
                             <td><a href="" class="btn btn-warning"><b>Editar</b></a></td>
                             <td>
                                 {!!Form::open(['method' => 'DELETE', 'route' => ['user.delete',$user->id]])!!}
-                                        {{ Form::button('Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
+                                    {{ Form::button('Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
                                 {!!Form::close()!!}
                             </td>
                         @endforeach

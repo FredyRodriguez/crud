@@ -18,4 +18,8 @@ Route::get('/', function () {
 Route::get('/usuario','UserController@index')->name('user.index');
 Route::get('/usuario/create','UserController@create');
 Route::post('/usuario/store','UserController@store')->name('user.store');
-Route::delete('/usuario/{user}/delete','UserController@destroy')->name('user.delete');
+Route::delete('/usuario/{id}/delete','UserController@destroy')->name('user.delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
