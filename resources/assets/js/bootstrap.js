@@ -11,6 +11,10 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap-sass');
+    toastr = require('toastr');
+    toastr.options = {
+        "progressBar": true,
+    }
 } catch (e) {}
 
 /**
