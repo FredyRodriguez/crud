@@ -22,7 +22,7 @@
         </div>
         <div class="col-xs-6 col-sm-6 col-md-6">
             <label for="">Cedula</label>
-            <input type="number" name="cedula" class="form-control" placeholder="Cedula" autocomplete="off">
+            <input type="number" name="documento" class="form-control" placeholder="Cedula" autocomplete="off">
         </div>
        </div>
        <div class=row>

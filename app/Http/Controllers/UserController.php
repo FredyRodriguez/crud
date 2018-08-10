@@ -24,6 +24,10 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'email' => 'required|unique:users|max:255',
+        ]);
+
        if($request->hasFile('avatar')){
            $file = $request->file('avatar');
            $name = time().$file->getClientOriginalName();
