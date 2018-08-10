@@ -8,11 +8,11 @@
                      <b>Crear Usuarios</b>
                 </a>
             </div><br>
-             @foreach($users as $user)
+           {{--  @foreach($users as $user)
              <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="images/{{$user->avatar}}" alt="">
+                    <img style="height: 300px; witdth: 20px" class="card-img-top rounded-circle" src="images/{{$user->avatar}}" alt="">
                         <div class="card-body">
                             <h5 class="card-title">{{$user->name}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -23,12 +23,12 @@
                      </div>  
                 </div>
              </div>                
-            @endforeach  
+            @endforeach  --}}
 
 
 
 
-          {{--  <div class="table-responsive-md">
+            <div class="table-responsive-md">
                 <table id="data" class="table table-striped">
                     <thead>
                         <th class="text-center">Nombre</th>
@@ -40,6 +40,7 @@
                         <th class="text-center">Ciudad</th>
                         <th class="text-center">Fecha Nacimiento</th>
                         <th class="text-center">E-mail</th>
+                        <th class="text-center">Avatar</th>
                         <th class="text-center">Editar</th>
                         <th class="text-center">Eliminar</th>
                         
@@ -57,7 +58,9 @@
                             <td>{{$user->ciudad}}</td>
                             <td>{{$user->fecha}}</td>                            
                             <td>{{$user->email}}</td>
-                            <td><a href="" class="btn btn-warning"><b>Editar</b></a></td>
+                            <td><img style="height: 100px; witdth: 20px"  src="images/{{$user->avatar}}" alt=""></td>
+                            <td>{{link_to_route('user.edit', $title = 'Editar', $parameter = $user->id, $attributes = ['class' => 'btn btn-simple btn-warning btn-icon edit icon-pencil'])}}
+                            </td>
                             <td>
                                 {!!Form::open(['method' => 'DELETE', 'route' => ['user.delete',$user->id]])!!}
                                     {{ Form::button('Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] )  }}
@@ -66,5 +69,5 @@
                         @endforeach
                     </tbody> 
                 </table>
-            </div>--}}
+            </div>
 @endsection

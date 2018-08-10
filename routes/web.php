@@ -18,6 +18,8 @@ Route::resource('trainers','TrainerController');
 Route::get('/usuario','UserController@index')->name('user.index');
 Route::get('/usuario/create','UserController@create');
 Route::post('/usuario/store','UserController@store')->name('user.store');
+Route::get('/usuario/{id}/edit','UserController@edit')->name('user.edit');
+Route::put('/usuario/{id}','UserController@update')->name('user.update');
 Route::delete('/usuario/{id}/delete','UserController@destroy')->name('user.delete');
 
 Auth::routes();

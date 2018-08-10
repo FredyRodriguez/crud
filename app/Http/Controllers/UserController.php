@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Http\Requests\UserStoreRequest;
@@ -63,12 +64,16 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit',['id'=>$user,]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->fill($request->all());
+        $user->save();
+        return redirect('/usuario')->with('success','Usuario Modificado Correctamente');
     }
 
     public function destroy($id)
