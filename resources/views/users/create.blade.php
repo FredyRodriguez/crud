@@ -13,35 +13,29 @@
 @endif
 <p><a href="{{route('user.index')}}" class="btn btn-primary"><b>Regresar</b></a></p>
 
-    {!! Form::open(['route' =>'user.store', 'method'=>'POST','file' => true]) !!}
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group form-md-line-input">
-                    {!!Form::label('name', 'Nombre')!!}
-                    {!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre','required','maxlength'=>'30', 'autocomplete' => 'off'])!!}            
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group form-md-line-input">
-                    {!!Form::label('documento', 'Numero de Identificación')!!} 
-                    {!!Form::number('documento',null,['class'=>'form-control','placeholder'=>'Documento','maxlength'=>'10'])!!}            
-                </div>
-            </div>
+    <form action="{{route('user.store')}}" class="form-group" method="POST" enctype="multipart/form-data">
+    {{csrf_field()}}
+       <div class=row>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <label for="">Nombre</label>
+            <input type="text" name="name" class="form-control" placeholder="Nombre" autocomplete="off">
         </div>
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group form-md-line-input">
-                     {!!Form::label('telefono', 'Telefono')!!} 
-                    {!!Form::number('telefono',null,['class'=>'form-control','placeholder'=>'Telefono','autocomplete'=>'off'])!!}            
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group form-md-line-input">
-                    {!!Form::label('direccion', 'Dirección')!!}
-                    {!!Form::text('direccion',null,['class'=>'form-control','placeholder'=>'Dirección','maxlength'=>'30'])!!}            
-                </div>
-            </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <label for="">Cedula</label>
+            <input type="number" name="cedula" class="form-control" placeholder="Cedula" autocomplete="off">
         </div>
+       </div>
+       <div class=row>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <label for="">Telefono</label>
+            <input type="number" name="telefono" class="form-control" placeholder="Telefono" autocomplete="off">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <label for="">Direccion</label>
+            <input type="text" name="direccion" class="form-control" placeholder="Direccion" autocomplete="off">
+        </div>
+       </div>
+
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group form-md-line-input">
@@ -54,46 +48,49 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group form-md-line-input">
-                    {!!Form::label('pais', 'Pais')!!}
-                    {!!Form::text('pais',null,['class'=>'form-control','placeholder'=>'Pais','maxlength'=>'10'])!!}            
+                    <label for="">Pais</label>
+                    <input type="text" name="pais" class="form-control" placeholder="Pais"/>            
                 </div>
             </div>
         </div>
-         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group form-md-line-input">
-                    {!!Form::label('ciudad', 'Ciudad')!!}
-                    {!!Form::text('ciudad',null,['class'=>'form-control','placeholder'=>'Ciudad','maxlength'=>'30'])!!}            
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="form-group form-md-line-input">
-                    {!!Form::label('fecha', 'Fecha de Nacimiento')!!}
-                    {!!Form::date('fecha',null,['class'=>'form-control'])!!}            
-                </div>
-            </div>
-        </div> 
-        <div class="form-group form-md-line-input">
-            {!!Form::label('email', 'Correo')!!}
-            {!!Form::text('email',null,['class'=>'form-control','placeholder'=>'E-mail', 'autocomplete'=>'off'])!!}            
-        </div>   
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group form-md-line-input">
-                    {!!Form::label('password', 'Contraseña')!!}
-                    {!!Form::password('password',['class'=>'form-control','placeholder'=>'Contraseña','maxlength'=>'30'])!!}            
+                    <label for="">Cuidad</label>
+                    <input type="text" name="ciudad" class="form-control" placeholder="Ciudad"/>            
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="form-group form-md-line-input">
-                    {!!Form::label('password_confirmation', 'Confirmar Contraseña')!!}
-                    {!!Form::password('password_confirmation',['class'=>'form-control','placeholder'=>'Confirmar Contraseña','maxlength'=>'30'])!!}            
+                    <label for="">Fecha Nacimiento</label>
+                    <input type="date" name="fecha" class="form-control"/>            
                 </div>
             </div>
-        </div>   
         </div>
-           <b>{!! Form::submit('Registrar', ['class'=>'btn btn-success']) !!}</b>
-        </div> 
-    {!! Form::close() !!}       
+        <div class="form-group form-md-line-input">
+            <label for="">Correo</label>
+            <input type="email" name="email" class="form-control" placeholder="Email"/>            
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group form-md-line-input">
+                    <label for="">Contraseña</label>
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña"/>            
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group form-md-line-input">
+                    <label for="">Confirmar Contraseña</label>
+                    <input type="password" name="password_confirmar" class="form-control" placeholder="Confirmar Contraseña"/>            
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <label for="">Avatar</label>
+            <input type="file" name="avatar" >
+        </div>
+       <button type="submit" class="btn btn-success">Registrar</button>
+    </form>
+    
     
 @endsection
